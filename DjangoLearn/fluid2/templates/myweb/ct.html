@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookies</title>
+    <style type="text/css">
+        ul.uul li{
+            width:100px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+            list-style: none;
+        }
+        ul.uul li.c1{
+            background-color: #ffcc00;
+        }
+        ul.uul li.c2{
+            background-color: black;
+        }
+        ul.uul li.c3{
+            background-color: #f0c;
+        }
+
+        #did{
+            width:500px;
+            height: 400px;
+            border:2px solid blue;
+            clear:both;
+        }
+        #did.c1{background-color: #ffcc00;}
+        #did.c2{background-color: black;}
+        #did.c3{background-color: #f0c;}
+    </style>
+</head>
+<body>
+    <ul class="uul">
+        <li class="c1" onclick="window.location='{% url 'setCt' %}?cname=c1'"></li>
+        <li class="c2" onclick="window.location='{% url 'setCt' %}?cname=c2'"></li>
+        <li class="c3" onclick="window.location='{% url 'setCt' %}?cname=c3'"></li>
+    </ul>
+    <div id="did" class="{{ classname }}"></div>
+</body>
+</html>

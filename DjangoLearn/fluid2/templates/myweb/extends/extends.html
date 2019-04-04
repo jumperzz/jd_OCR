@@ -1,0 +1,20 @@
+{% extends 'myweb/extends/base.html' %}
+
+{% block 'mainbody' %}
+    <table width="700" border="1" align="center" style="text-align: center">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>地址</th>
+        </tr>
+        {% for vo in list %}
+        <tr>
+            <td>{{ vo.id }}</td>
+            <td>{{ vo.name }}</td>
+            <td>{{ vo.sex }}</td>
+            <td>{{ vo.address }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{%endblock%}
