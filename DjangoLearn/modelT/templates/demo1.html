@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在模板中输出各种信息</title>
+</head>
+<body>
+    <h2>在模板中输出各种信息</h2>
+
+    <a href="{% url 'index' %}">返回</a>
+    <hr>
+
+    1.输出单个name信息 --> {{ name }}<br>
+    2.输出单个age信息 --> {{ age }}<br>
+    3.输出列表信息 --> {{ arr }}  输出单个值 --> {{ arr.1 }}<br>
+    4.遍历列表
+        {% for each in arr %}
+            {{ each }}
+        {% endfor %}<br>
+    5.使用过滤器输出 --> {{ arr|join:'^' }} <br>
+        <ul>
+            <li>{{ arr|join:'</li><li>' }}</li>
+        </ul>
+        <br>
+
+    8.html输出 关闭转义 --> {{ htmlinfo|safe }}
+    9.html输出 开启转义 --> {{ htmlinfo|escape }}<br>
+
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"code": "0", "message": "success", "request_id": "814de2edd94c428e9dc065f8a5c2c4bd", "result": {"buyer_name": "", "buyer_tax_no": "", "code": "", "invoice_amount": "", "invoice_date": "", "invoice_no": "", "invoice_type": "01", "saler_name": "", "saler_tax_no": "", "tax_amount": "", "total_amount": "", "verify_code": ""}, "response_time": "6.493429"}

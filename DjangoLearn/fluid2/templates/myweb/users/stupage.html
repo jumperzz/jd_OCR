@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息搜索&分页</title>
+    <style type="text/css">
+        a.page{
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+            margin: 3px;
+        }
+        a.active{
+            background-color: #fc0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        {% include 'myweb/menu.html' %}
+        <h3>分页信息</h3>
+
+
+        <table width="700" border="1">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>地址</th>
+            </tr>
+            {% for vo in list %}
+            <tr>
+                <td>{{ vo.id }}</td>
+                <td>{{ vo.name }}</td>
+                <td>{{ vo.sex }}</td>
+                <td>{{ vo.address }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        {% for p in plist %}
+            {% if p == pIndex %}
+                <a class=" page active" href="{% url 'stupage' p %}">{{ p }}</a>
+            {% else %}
+                <a class="page" href="{% url 'stupage' p %}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+
+        <br><br>
+        <div align="center">
+            <!--<button onclick="window.location='{% url 'stupage' pIndex|add:-1 %}'">上一页</button>-->
+            <a href="{% url 'stupage' pIndex|add:-1 %}">上一页</a>
+            {% for p in plist %}
+                {%if p == pIndex %}
+                    <a class="page active" href="{% url 'stupage' p %}">{{ p }}</a>
+                {% else %}
+                    <a class="page" href="{% url 'stupage' p %}">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+            <!--<button>{{ pIndex }}</button>-->
+            <button onclick="window.location='{% url 'stupage' pIndex|add:1 %}'">下一页</button>
+        </div>
+    </center>
+</body>
+</html>

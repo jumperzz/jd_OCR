@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Model</title>
+</head>
+<body>
+    <h2>Users Model</h2>
+    <a href="{% url 'myweb' %}">back</a> |
+    <a href="{% url 'users_index' %}">showUser</a>
+    <table width="500" border="1">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>TODO</th>
+        </tr>
+        {% for vo in list %}
+            <tr>
+                <td>{{ vo.id }}</td>
+                <td>{{ vo.name }}</td>
+                <td><a href="{% url 'users_del' vo.id %}">delect</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

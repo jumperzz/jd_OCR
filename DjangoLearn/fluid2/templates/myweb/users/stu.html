@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部信息</title>
+</head>
+<body>
+    <center>
+        {% include 'myweb/menu.html' %}
+        <h3>浏览全部信息</h3>
+        <table width="700" border="1">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>地址</th>
+            </tr>
+            {% for vo in list %}
+            <tr>
+                <td>{{ vo.id }}</td>
+                <td>{{ vo.name }}</td>
+                <td>{{ vo.sex }}</td>
+                <td>{{ vo.address }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </center>
+</body>
+</html>

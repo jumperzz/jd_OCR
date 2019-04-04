@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索&分页</title>
+</head>
+<body>
+    <center>
+        {% include 'myweb/menu.html' %}
+        <h3>搜索&分页</h3>
+
+        <form action="{% url 'stuspages' 1 %}" method="get">
+            姓名：<input type="text" name="name" value="{{ request.GET.name }}" size="10">
+            性别：<select name="sex">
+                <option value="">全部</option>
+                <option {% if request.GET.sex == '男' %} selected {% endif %} value="男">男</option>
+                <option {% if request.GET.sex == '女' %} selected {% endif %} value="女">女</option>
+            </select>
+            <input type="submit" value="搜索">
+        </form>
+        <br>
+
+        <table width="700" border="1">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>地址</th>
+            </tr>
+            {% for vo in list %}
+            <tr>
+                <td>{{ vo.id }}</td>
+                <td>{{ vo.name }}</td>
+                <td>{{ vo.sex }}</td>
+                <td>{{ vo.address }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+
+        {% for p in plist%}
+            {% if p == pIndex %}
+                <a class=" page active" href="{% url 'stuspages' p %}?{{ condition|join:'&' }}">{{ p }}</a>
+            {% else %}
+                <a class="page" href="{% url 'stuspages' p %}?{{ condition|join:'&' }}">{{ p }}</a>
+            {% endif %}
+        {% endfor %}
+
+     </center>
+
+</body>
+</html>
